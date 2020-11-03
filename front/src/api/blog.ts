@@ -1,7 +1,7 @@
 // import axios from "axios";
 
 import { sleep } from "../lib/sleep";
-import { photos } from "../containers/photos";
+import { photos } from "../dummy/photos";
 
 export async function getBlogList(count: number) {
   // Generic 을 통해 응답 데이터의 타입을 설정 할 수 있습니다.

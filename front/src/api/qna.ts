@@ -1,8 +1,8 @@
 // import axios from "axios";
 
 import { sleep } from "../lib/sleep";
-import { dummyDataQNA } from "../containers/dummyqnas";
-import { IPropsQNAItem, } from '../types/qnaType';
+import { dummyDataQNA } from "../dummy/dummyqnas";
+import { IPropsQNAItem } from "../types/qnaType";
 
 export async function getQnaList(count: number) {
   // Generic 을 통해 응답 데이터의 타입을 설정 할 수 있습니다.

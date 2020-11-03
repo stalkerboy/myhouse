@@ -1,14 +1,9 @@
 import React from "react";
-import LoginForm from "./loginform";
-import AppLayout from "../../containers/layout/AppLayout";
+import { LoginFormContainer } from "../../containers/LoginFormContainer";
 
 interface LoginProps {}
 
 const Login: React.FC<LoginProps> = ({}) => {
-  return (
-    <AppLayout>
-      <LoginForm />
-    </AppLayout>
-  );
+  return <LoginFormContainer />;
 };
 export default Login;
