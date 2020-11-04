@@ -20,6 +20,16 @@ export async function loginUser(props: IPropsLogin) {
 
   await sleep(2000);
 
-  const userProfile: IPropsUserProfile = { email: "test@test.com", nickname: "test", token: "testtoken" };
+  const userProfile: IPropsUserProfile = { email: props.email, nickname: props.email + "nick", token: "logintoken" };
   return userProfile; // 데이터 값을 바로 반환하도록 처리합니다.
+}
+
+export async function logoutUser(token: string) {
+  // Generic 을 통해 응답 데이터의 타입을 설정 할 수 있습니다.
+  // const response = await Axios.post<UserProfile>(`${process.env.NEXT_PUBLIC_API_URL}/user/login`, { email, password });
+  // console.log(response.data);
+
+  await sleep(2000);
+
+  return false; // 데이터 값을 바로 반환하도록 처리합니다.
 }

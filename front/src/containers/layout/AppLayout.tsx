@@ -1,15 +1,15 @@
 import React, { ReactNode, FC } from "react";
 import Link from "next/link";
-// import styled from "styled-components";
 import { Row, Col, Menu } from "antd";
-import { IPropsUserProfile } from "../../types/UserType";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux";
 
 type PropTypes = {
   children: ReactNode;
-  userProfile?: IPropsUserProfile | null;
 };
 
-const AppLayout: FC<PropTypes> = ({ children, userProfile }) => {
+const AppLayout: FC<PropTypes> = ({ children }) => {
+  const { data } = useSelector((state: RootState) => state.user.userProfile);
   return (
     <div>
       <Menu mode="horizontal" style={{ padding: "60px 80px 0 80px", background: "#fafafa" }}>
@@ -33,7 +33,7 @@ const AppLayout: FC<PropTypes> = ({ children, userProfile }) => {
             <a>Q&A</a>
           </Link>
         </Menu.Item>
-        {userProfile ? (
+        {data ? (
           <Menu.Item key="logout" style={{ padding: "0 0 10px 0", fontSize: "1.4em", width: 140, height: 50, textAlign: "center", fontWeight: 600, float: "right" }}>
             <Link href="/logout">
               <a>로그아웃</a>
