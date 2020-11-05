@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Row, Col, Avatar } from 'antd';
+import { List, Row, Col, Avatar, Divider } from 'antd';
+import styled from 'styled-components';
 import { UserOutlined } from '@ant-design/icons';
 import { IPropsQNAItem } from '../types/qnaType';
 
@@ -10,26 +11,52 @@ interface QnaCardProps {
 const QnaCard:FC<QnaCardProps> = ( props ) => {
     const { title, coverImage, content, user} = props.QnaItem;
     return (
-        <div style={{border : "1px solid black", padding : 20}}>
+        <QnaCardWrapper>
             <Row>
             <Col flex={6}>
-            <div style={{border  : "1px solid green"}}>
-                <h3>{title}</h3>
-                <p>{content}</p>
-                <div>
-                    <Avatar size="small" icon={<UserOutlined />} style={{float : "left", display : "block"}} />
-                    <p style={{float : "left", display : "block"}}>{user}</p>
+            <QnaListLeft>
+                <QnaListTitle>{title}</QnaListTitle>
+                <QnaListContent>{content}</QnaListContent>
+                <div style={{display : "flex"}}>
+                    <Avatar size="small" icon={<UserOutlined />} />
+                    <p style={{display : "block", marginLeft : 5}}>{user}</p>
                 </div>
-            </div>
+            </QnaListLeft>
             </Col>
-            <Col flex={1} style={{border : "1px solid blue"}}>
-                <div style={{width : 200, height : 200, float : "right"}}>
+            <Col flex={1}>
+                <ImageCover>
                     <img src ={coverImage}/>
-                </div>
+                </ImageCover>
             </Col>
             </Row>
-        </div>
+        </QnaCardWrapper>
     )
 }
+
+const QnaCardWrapper = styled.div`
+    border-bottom : 1px solid #eee;
+    padding : 20px;
+    width : 80%;
+    margin : 0 auto;
+`
+
+const QnaListTitle = styled.h3`
+    font-size : 18px;
+    font-weight : 700;
+`
+
+const QnaListContent = styled.p`
+    color : #555;
+`
+
+const QnaListLeft = styled.div`
+    padding-top : 10px;
+`
+
+const ImageCover = styled.div`
+    width : 120px;
+    height : 120px;
+    float : right;
+`
 
 export default QnaCard;
