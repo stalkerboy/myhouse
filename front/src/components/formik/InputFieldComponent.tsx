@@ -22,7 +22,7 @@ export const InputField: React.FC<InputFieldProps> = ({ type, ...props }) => {
 
   return (
     <FormItem help={errorMsg} validateStatus={errorMsg ? "error" : undefined}>
-      <Comp id={field.name} onChange={field.onChange} onClick={onClick} style={{width : "400px", height : "40px" }}/>
+      <Comp id={field.name} onChange={field.onChange} onClick={onClick} style={{ width: "400px", height: "40px" }} />
     </FormItem>
   );
 };

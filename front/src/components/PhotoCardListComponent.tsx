@@ -1,8 +1,9 @@
 import React from "react";
 import Gallery, { PhotoProps } from "react-photo-gallery";
-import PhotoCard from "../components/PhotoCard";
-// import { photos } from "./photos";
+import PhotoCard from "./PhotoCardComponent";
+
 React.useLayoutEffect = React.useEffect;
+
 interface PhotoCardListProps {
   type?: string;
   photos: Array<PhotoProps> | null;

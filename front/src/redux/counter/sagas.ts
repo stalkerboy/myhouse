@@ -2,7 +2,7 @@ import { getServerCountAsync, GET_SERVER_COUNT } from "./actions";
 import { getServerCount, ServerCount } from "../../api/counter";
 import { call, put, takeEvery } from "redux-saga/effects";
 
-function* getUserProfileSaga(action: ReturnType<typeof getServerCountAsync.request>) {
+function* getCounterSaga(action: ReturnType<typeof getServerCountAsync.request>) {
   try {
     const counter: ServerCount = yield call(getServerCount, action.payload);
     yield put(getServerCountAsync.success(counter));
@@ -12,5 +12,5 @@ function* getUserProfileSaga(action: ReturnType<typeof getServerCountAsync.reque
 }
 
 export function* counterSaga() {
-  yield takeEvery(GET_SERVER_COUNT, getUserProfileSaga);
+  yield takeEvery(GET_SERVER_COUNT, getCounterSaga);
 }
