@@ -1,22 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import AppLayout from "./layout/AppLayout";
-import PhotoCardList from "../components/PhotoCardListComponent";
-import { PhotoProps } from "react-photo-gallery";
-import { sleep } from "../lib/sleep";
-import { photos } from "../dummy/photos";
+import { IPropsBlogItem, IStateBlogList } from "../types/BlogType";
+import BlogCardComponent from "../components/BlogCardComponents";
+import { dummyDataBlog } from "../dummy/dummyBlog";
 
-interface BlogMainContainerProps {}
+export const BlogMainContainer:FC = () => {
+  const [iStateBlogList, setIStateBlogList] = useState<IStateBlogList>();
 
-export const BlogMainContainer: React.FC<BlogMainContainerProps> = ({}) => {
-  const [blogList, setBlogList] = useState<Array<PhotoProps> | null>(null);
   useEffect(() => {
-    sleep(1000);
-    setBlogList(photos);
+    setIStateBlogList({listItem : dummyDataBlog});
   }, []);
 
   return (
     <AppLayout>
-      <PhotoCardList type="blog" photos={blogList} />
+      <div>
+      {iStateBlogList && iStateBlogList.listItem.map((data:IPropsBlogItem) => {
+          return (
+              <BlogCardComponent
+                  key={data.id}
+                  BlogItem ={data}
+              />
+          )
+      })}
+      </div>
     </AppLayout>
   );
 };

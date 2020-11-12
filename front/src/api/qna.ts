@@ -2,7 +2,7 @@
 
 import { sleep } from "../lib/sleep";
 import { dummyDataQNA } from "../dummy/dummyqnas";
-import { IPropsQNAItem } from "../types/qnaType";
+import { IPropsQNAItem } from "../types/QnaType";
 
 export async function getQnaList(count: number) {
   // Generic 을 통해 응답 데이터의 타입을 설정 할 수 있습니다.

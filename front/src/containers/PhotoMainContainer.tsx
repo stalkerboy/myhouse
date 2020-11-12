@@ -1,23 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import AppLayout from "./layout/AppLayout";
-import PhotoCardList from "../components/PhotoCardListComponent";
-import { photos } from "../dummy/photos";
-import { sleep } from "../lib/sleep";
-import { PhotoProps } from "react-photo-gallery";
+import { IPropsPhotoItem, IStatePhotoList } from "../types/PhotoType";
+import PhotoCardComponent from "../components/PhotoCardComponent";
+import { dummyDataPhoto } from "../dummy/dummyPhoto";
 
-export function PhotoMainContainer() {
-  const [photoList, setPhotoList] = useState<Array<PhotoProps> | null>(null);
+export const PhotoMainContainer:FC = () => {
+  const [iStatePhotoList, setIStatePhotoList] = useState<IStatePhotoList>();
 
   useEffect(() => {
-    sleep(1000);
-    setPhotoList(photos);
+    setIStatePhotoList({listItem : dummyDataPhoto});
   }, []);
-
-  useEffect(() => {}, []);
 
   return (
     <AppLayout>
-      <PhotoCardList photos={photoList} />
+      <div>
+      {iStatePhotoList && iStatePhotoList.listItem.map((data:IPropsPhotoItem) => {
+          return (
+              <PhotoCardComponent
+                  key={data.id}
+                  PhotoItem ={data}
+              />
+          )
+      })}
+      </div>
     </AppLayout>
   );
 }

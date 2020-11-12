@@ -1,9 +1,10 @@
 import React from "react";
 import { PhotoMainContainer } from "../../containers/PhotoMainContainer";
 
-interface PhotoProps {}
-
-const Photo: React.FC<PhotoProps> = ({}) => {
-  return <PhotoMainContainer />;
+const PhotoPage = () => {
+  return (
+    <PhotoMainContainer />
+  );
 };
-export default Photo;
+
+export default PhotoPage;

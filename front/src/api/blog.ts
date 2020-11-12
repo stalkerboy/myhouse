@@ -1,7 +1,8 @@
 // import axios from "axios";
 
 import { sleep } from "../lib/sleep";
-import { photos } from "../dummy/photos";
+import { dummyDataBlog } from "../dummy/dummyBlog";
+import { IPropsBlogItem } from "../types/BlogType";
 
 export async function getBlogList(count: number) {
   // Generic 을 통해 응답 데이터의 타입을 설정 할 수 있습니다.
@@ -10,13 +11,6 @@ export async function getBlogList(count: number) {
 
   await sleep(2000);
 
-  const BlogList: Blog[] = photos;
+  const BlogList: IPropsBlogItem[] = dummyDataBlog;
   return BlogList;
-}
-
-export interface Blog {
-  title: string;
-  src: string;
-  width: number;
-  height: number;
 }

@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { List, Row, Col, Avatar, Divider } from 'antd';
+import { Row, Col, Avatar } from 'antd';
 import styled from 'styled-components';
 import { UserOutlined } from '@ant-design/icons';
-import { IPropsQNAItem } from '../types/qnaType';
+import { IPropsQNAItem } from '../types/QnaType';
 
 interface QnaCardProps {
     QnaItem : IPropsQNAItem;
